@@ -70,3 +70,6 @@ jobs:
           CI: true
           MONGODB_PORT: ${{ matrix.mongodb-port }}
           MONGODB_REPLICA_SET: mongodb-test-rs
+
+      - run: npm install -y mongosh
+      - run: mongosh --port 23456 --eval 'db.serverStatus()'
