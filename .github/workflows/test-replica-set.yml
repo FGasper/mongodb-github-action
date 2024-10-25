@@ -71,5 +71,5 @@ jobs:
           MONGODB_PORT: ${{ matrix.mongodb-port }}
           MONGODB_REPLICA_SET: mongodb-test-rs
 
-      - run: npm install -y mongosh
-      - run: mongosh --port 23456 --eval 'db.serverStatus()'
+      - run: npm install -g mongosh
+      - run: mongosh --port ${{ matrix.mongodb-port }} --eval 'db.serverStatus()'
